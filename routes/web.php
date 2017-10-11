@@ -12,7 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('task');
+    $tasks = Task::orderBy('created_at', 'asc')->get();
+
+    return view('tasks', [
+        'tasks' => $tasks
+    ]);
 });
 
 /**
