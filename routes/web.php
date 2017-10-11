@@ -28,7 +28,11 @@ Route::post('/task', function (Request $request) {
             ->withInput()
             ->withErrors($validator);
     }
+    $task = new Task;
+    $task->name = $request->name;
+    $task->save();
 
+    return redirect('/');
 });
 
 /**
